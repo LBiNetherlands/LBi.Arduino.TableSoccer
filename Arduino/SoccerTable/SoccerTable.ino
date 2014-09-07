@@ -6,6 +6,10 @@ int scoreTeamBlue = 0;
 int scoreTeamRed = 0;
 
 void setup() {
+  // set pullup mode for multi button
+  pinMode(A0, INPUT);
+  digitalWrite(A0, HIGH);
+  
   lcd.begin(16, 2);
   lcd.print("Press start");
 }
@@ -13,7 +17,7 @@ void setup() {
 void loop() {
   int val = analogRead(analogButtonPin);
   
-  if(val >= 900 && val <= 1100)
+  if(val >= 500 && val <= 599)
   {
     // button 1 (start game)
     scoreTeamBlue = 0;
@@ -23,19 +27,19 @@ void loop() {
     lcd.print("BLUE         RED");
     outputScore();
   }
-  if(val >= 700 && val <= 899)
+  if(val >= 400 && val <= 499)
   {
     // button 2 (score blue)
     scoreTeamBlue = scoreTeamBlue + 1;    
     outputScore(); 
   }
-  if(val >= 600 && val <= 699)
+  if(val >= 300 && val <= 399)
   {
     // button 3 (score red)
     scoreTeamRed = scoreTeamRed + 1;    
     outputScore();
   }
-  if(val >= 500 && val <= 599)
+  if(val >= 200 && val <= 299)
   {
     // button 4 (end game)
     scoreTeamBlue = 0;
