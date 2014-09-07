@@ -45,7 +45,7 @@ void loop() {
     lcd.print("Press start");
   }
   
-  delay(200);
+  delay(300);
 
 }
 
